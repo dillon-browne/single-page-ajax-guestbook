@@ -1,7 +1,7 @@
 // this is the id of the form
 $("#idForm").submit(function(e) {
 
-    var url = "script.php"; // the script where you handle the form input.
+    var url = "guestbook-post.php"; // the script where you handle the form input.
 
     $.ajax({
         type: "POST",
@@ -10,7 +10,7 @@ $("#idForm").submit(function(e) {
         success: function(data)
         {
             $("#msg").append(data);
-            $("#responsecontainer1").append(data);
+            $("#comments").append(data);
         }
     });
 
@@ -21,7 +21,7 @@ $(document).ready(function() {
 
     $.ajax({    //create an ajax request to display.php
         type: "GET",
-        url: "display.php",
+        url: "guestbook-get.php",
         dataType: "html",   //expect html to be returned
         success: function(response){
             $("#comments").append(response).fadeIn(999);

@@ -18,13 +18,12 @@ if ($result->num_rows > 0) {
         ?>
         <div class="card shadow text-center">
             <div class="card-header">
-                <h2><? print_r($name); ?>s</h2>
+                <h3><?php print_r($name); ?></h3>
             </div>
             <div class="card-body">
-                <? echo $comm; ?>
+                <p><?php print_r($comm); ?></p>
             </div>
         </div>
-
 
         <?php
 
