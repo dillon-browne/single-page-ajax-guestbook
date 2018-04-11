@@ -11,6 +11,10 @@ $username = "homestead";
 $password = "secret";
 $dbname = "guestbook";
 
+$nameCol = 'fullname';
+$comCol = 'comments';
+
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection

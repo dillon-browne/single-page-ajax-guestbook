@@ -3,87 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
 </head>
 <body>
-<div id="responsecontainer">
-cfcfcf
-</div>
-<form id="idForm">
-    <label>Name
-        <input type="text" name="name" >
-    </label>
 
-    <button type="submit" id="display">SMD</button>
-</form>
-<div id="msg">
+    <div class="container" id="comments" style="padding-top: 50px;">
+        <div class="col-6 offset-3">
+            <div class="card shadow text-center">
+                <div class="card-header">
+                    <h3>Post a Comment</h3>
+                </div>
+                <div class="card-body">
+                    <form id="idForm">
+                        <label>Name
+                            <input type="text" name="name" >
+                        </label>
 
-</div>
-<h3 align="center">Manage Student Details</h3>
-<table border="1" align="center">
-    <tr>
-        <td> <input type="button" id="refresh" value="Display All Data" /> </td>
-    </tr>
-</table>
-<div id="responsecontainer1" align="center">
+                        <button type="submit" id="display">SMD</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-    // this is the id of the form
-    $("#idForm").submit(function(e) {
+<script src="js/bootstrap.min.js"></script>
+<script src="js/ajax-guestbook.js"></script>
 
-        var url = "script.php"; // the script where you handle the form input.
-
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: $("#idForm").serialize(), // serializes the form's elements.
-            success: function(data)
-            {
-                $("#msg").append(data);
-                // alert(data); // show response from the php script.
-            }
-        });
-
-        e.preventDefault(); // avoid to execute the actual submit of the form.
-    });
-
-    $(document).ready(function() {
-
-        $("#refresh").click(function() {
-
-            $.ajax({    //create an ajax request to display.php
-                type: "GET",
-                url: "display.php",
-                dataType: "html",   //expect html to be returned
-                success: function(response){
-                    $("#responsecontainer1").html(response).fadeIn(999);
-                    //alert(response);
-                }
-
-            });
-        });
-    });
-</script>
-<script type="text/javascript">
-
-    $(document).ready(function() {
-
-        $("#display").click(function() {
-
-            $.ajax({    //create an ajax request to display.php
-                type: "GET",
-                url: "display.php",
-                dataType: "html",   //expect html to be returned
-                success: function(response){
-                    $("#responsecontainer").html(response);
-                    //alert(response);
-                }
-
-            });
-        });
-    });
-
-</script>
 </body>
 </html>
