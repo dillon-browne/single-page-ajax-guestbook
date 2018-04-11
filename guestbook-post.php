@@ -1,7 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dillonbrowne
- * Date: 4/9/18
- * Time: 4:00 PM
- */
+
+require_once('guestbook-db.php');
+$name = $_POST['name'];
+
+$sql = "INSERT INTO commentd ($nameCol, $comCol)
+VALUES ('$name', 'john@example.com')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>

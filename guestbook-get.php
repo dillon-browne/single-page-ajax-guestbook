@@ -5,7 +5,7 @@
  * Date: 4/9/18
  * Time: 5:20 PM
  */
-require_once('db.php');
+require_once('guestbook-db.php');
 
 $sql = "SELECT * FROM commentd";
 $result = $conn->query($sql);
@@ -13,12 +13,12 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        $name = $row[$nameCol];
+        $name = $row['fullname'];
         $comm = $row[$comCol];
         ?>
         <div class="card shadow text-center">
             <div class="card-header">
-                <h3><? echo $name; ?></h3>
+                <h2><? print_r($name); ?>s</h2>
             </div>
             <div class="card-body">
                 <? echo $comm; ?>
@@ -26,7 +26,7 @@ if ($result->num_rows > 0) {
         </div>
 
 
-<?
+        <?php
 
     }
 } else {
@@ -34,3 +34,5 @@ if ($result->num_rows > 0) {
 }
 
 $conn->close();
+
+?>
